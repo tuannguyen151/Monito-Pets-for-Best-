@@ -5,7 +5,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const baseClass =
-  'pl-7 pr-7 py-3.5 border border-neutral-40 rounded-lg placeholder:text-neutral-40 focus-visible:ring-1 focus-visible:ring-neutral-60 disabled:cursor-not-allowed disabled:opacity-50 text-neutral-80'
+  'pl-7 pr-7 py-3.5 border border-neutral-40 rounded-lg placeholder:text-neutral-40 focus:outline-2 focus:outline-state-blue disabled:cursor-not-allowed disabled:opacity-50 text-neutral-60'
 const defaultVariantClass = ''
 
 const variants = {
