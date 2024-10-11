@@ -12,6 +12,7 @@ export default {
     },
     colors: {
       transparent: colors.transparent,
+      white: colors.white,
       primary: {
         DEFAULT: '#003459',
         40: '#0078CD',
@@ -32,7 +33,7 @@ export default {
       },
       neutral: {
         DEFAULT: '#FDFDFD',
-        10: '#FDFDFD',
+        10: '#EBEEEF',
         20: '#CCD1D2',
         40: '#99A2A5',
         60: '#667479',
