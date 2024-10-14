@@ -1,11 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Input, variants } from './Input'
+import InputWrapper from './InputWrapper'
 import CaretCircleRight from './icons/CaretCircleRight'
 
 const meta = {
   title: 'Monito Pets/Atoms/Input',
   component: Input,
+  render: (args, { loaded: { isHideAssistive } }) => (
+    <InputWrapper
+      label='Label'
+      subLabel='subLabel'
+      assistive={!isHideAssistive && <h1 className='text-state-pink'>Error</h1>}
+    >
+      <Input {...args} />
+    </InputWrapper>
+  ),
   parameters: {
     layout: 'centered',
   },
@@ -15,42 +25,6 @@ const meta = {
       options: Object.keys(variants.variant),
       control: { type: 'select' },
       description: 'The variant of the input',
-    },
-    label: {
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-      control: {
-        type: 'text',
-      },
-      description: 'The label of the input',
-    },
-    assistive: {
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-      options: ['Error', 'None'],
-      mapping: {
-        Error: <p className='text-state-pink'>Empty text</p>,
-        None: null,
-      },
-      description:
-        'The assistive text of the input. It can be an error message',
-    },
-    subLabel: {
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
-      control: {
-        type: 'text',
-      },
-      description: 'The subLabel of the input',
     },
     leftIcon: {
       table: {
@@ -86,14 +60,11 @@ const meta = {
     },
   },
   args: {
-    label: 'Label',
     variant: 'default',
     placeholder: 'Type something here!',
-    subLabel:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
-    assistive: <p className='text-state-pink'>Empty text</p>,
     leftIcon: <CaretCircleRight />,
     rightIcon: <CaretCircleRight />,
+    disabled: false,
   },
 } satisfies Meta<typeof Input>
 

@@ -20,48 +20,32 @@ type SelectProps = React.ComponentPropsWithoutRef<typeof SelectRoot> & {
     'value'
   >
   defaultValue?: string
-  label?: React.ReactNode
-  subLabel?: string
-  assistive?: React.ReactNode
 }
 
 const Select = ({
   defaultValue = null as unknown as string,
   options,
   placeholder: { label: placeholderLabel, ...placeholderProps },
-  label,
-  subLabel,
-  assistive,
   ...props
 }: SelectProps) => {
   return (
-    <div className='flex flex-col gap-y-2.5 text-sm font-medium'>
-      {label && <label className='text-neutral-80'>{label}</label>}
+    <SelectRoot {...props} defaultValue={defaultValue}>
+      <SelectTrigger className='min-w-48'>
+        <SelectValue />
+      </SelectTrigger>
 
-      <SelectRoot {...props} defaultValue={defaultValue}>
-        <SelectTrigger className='w-[280px]'>
-          <SelectValue />
-        </SelectTrigger>
+      <SelectContent>
+        <SelectItem {...placeholderProps} value={null as unknown as string}>
+          {placeholderLabel}
+        </SelectItem>
 
-        <SelectContent>
-          <SelectItem {...placeholderProps} value={null as unknown as string}>
-            {placeholderLabel}
+        {options.map(({ value, label }) => (
+          <SelectItem key={value} value={value}>
+            {label}
           </SelectItem>
-
-          {options.map(({ value, label }) => (
-            <SelectItem key={value} value={value}>
-              {label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </SelectRoot>
-
-      {subLabel && (
-        <p className='text-xs font-normal text-neutral-60'>{subLabel}</p>
-      )}
-
-      {assistive && <div className='text-xs font-normal'>{assistive}</div>}
-    </div>
+        ))}
+      </SelectContent>
+    </SelectRoot>
   )
 }
 

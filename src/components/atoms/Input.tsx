@@ -32,62 +32,38 @@ const inputVariants = cva(baseClass, {
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
-  label?: React.ReactNode
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
-  subLabel?: string
-  assistive?: React.ReactNode
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      variant,
-      label,
-      leftIcon,
-      rightIcon,
-      subLabel,
-      assistive,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, variant, leftIcon, rightIcon, ...props }, ref) => {
     return (
-      <div className='flex flex-col gap-y-2.5 text-sm font-medium'>
-        {label && <label className='text-neutral-80'>{label}</label>}
-
-        <div className='relative w-fit text-neutral-60 focus-within:text-state-blue'>
-          {leftIcon && (
-            <div className='absolute left-4 top-1/2 -translate-y-1/2'>
-              {leftIcon}
-            </div>
-          )}
-
-          <input
-            className={cn(
-              inputVariants({
-                variant,
-                className,
-                isLeftIcon: !!leftIcon,
-                isRightIcon: !!rightIcon,
-              }),
-            )}
-            ref={ref}
-            {...props}
-          />
-
-          {rightIcon && (
-            <div className='absolute right-4 top-1/2 -translate-y-1/2'>
-              {rightIcon}
-            </div>
-          )}
-        </div>
-
-        {subLabel && (
-          <p className='text-xs font-normal text-neutral-60'>{subLabel}</p>
+      <div className='relative w-fit text-neutral-60 focus-within:text-state-blue'>
+        {leftIcon && (
+          <div className='absolute left-4 top-1/2 -translate-y-1/2'>
+            {leftIcon}
+          </div>
         )}
-        {assistive && <div className='text-xs font-normal'>{assistive}</div>}
+
+        <input
+          className={cn(
+            inputVariants({
+              variant,
+              className,
+              isLeftIcon: !!leftIcon,
+              isRightIcon: !!rightIcon,
+            }),
+          )}
+          ref={ref}
+          {...props}
+        />
+
+        {rightIcon && (
+          <div className='absolute right-4 top-1/2 -translate-y-1/2'>
+            {rightIcon}
+          </div>
+        )}
       </div>
     )
   },
