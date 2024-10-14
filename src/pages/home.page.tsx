@@ -2,6 +2,7 @@ import { Button } from '@/components/atoms/Button'
 import { Checkbox } from '@/components/atoms/Checkbox'
 import { Input } from '@/components/atoms/Input'
 import InputWrapper from '@/components/atoms/InputWrapper'
+import { RadioGroup, RadioGroupItem } from '@/components/atoms/Radio'
 import Select from '@/components/atoms/Select'
 import CaretCircleRight from '@/components/atoms/icons/CaretCircleRight'
 
@@ -78,6 +79,20 @@ const Home = () => (
         <Checkbox label='Select 1' />
         <Checkbox label='Select 2' defaultChecked />
         <Checkbox label='Select 3' disabled />
+      </InputWrapper>
+    </div>
+
+    <div className='flex gap-4'>
+      <InputWrapper
+        label='Label'
+        subLabel='subLabel'
+        assistive={<h1 className='text-state-pink'>Error</h1>}
+      >
+        <RadioGroup defaultValue='option-two'>
+          <RadioGroupItem value='option-one' label='Option 1' />
+          <RadioGroupItem value='option-two' label='Option 2' />
+          <RadioGroupItem value='option-three' disabled label='Option 3' />
+        </RadioGroup>
       </InputWrapper>
     </div>
   </div>
