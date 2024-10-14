@@ -30,7 +30,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ArrowDown className='size-4 transition-all group-data-[state=open]:rotate-180' />
+      <ArrowDown className='size-4 transition-all group-data-[state=open]:rotate-180 group-data-[state=open]:text-state-blue' />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))

@@ -57,7 +57,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className='flex flex-col gap-y-2.5 text-sm font-medium'>
         {label && <label className='text-neutral-80'>{label}</label>}
 
-        <div className='relative w-fit text-neutral-60'>
+        <div className='relative w-fit text-neutral-60 focus-within:text-state-blue'>
           {leftIcon && (
             <div className='absolute left-4 top-1/2 -translate-y-1/2'>
               {leftIcon}
