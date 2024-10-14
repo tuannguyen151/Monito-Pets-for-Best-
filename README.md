@@ -1,4 +1,4 @@
-# 💖 React - Redux Toolkit (RTK Query) - Vite - Typescript - Husky - Commitlint - Eslint - Prettier - Tailwind CSS 💖
+# 💖 React - Redux Toolkit (RTK Query) - Vite - Typescript - Husky - Commitlint - Eslint - Prettier - Tailwind CSS - Storybook 💖
 
 _Author:_ **Tuan Nguyen 💌**
 
@@ -28,6 +28,12 @@ Start the development server on <http://localhost:8080>
 
 ```bash
 npm run dev
+```
+
+Start the storybook server on <http://localhost:6006>
+
+```bash
+npm run storybook
 ```
 
 ---
@@ -63,6 +69,12 @@ npm run preview
 ### 3. Multi language with i18next and react-i18next
 
 Declare the locale in the `src/locales` directory, then import and use it in the `src/locales/i18n.tsx` file
+
+### 4. Tailwind CSS: Use utility-first CSS framework
+
+### 5. Storybook: Develop components in isolation
+
+Declare the Storybook stories in the `src/components` folder (same folder as the component files).
 
 ---
 
