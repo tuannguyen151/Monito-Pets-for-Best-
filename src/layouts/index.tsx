@@ -8,7 +8,7 @@ const Layout = () => {
     <div>
       <Header />
       <Sidebar />
-      <div>
+      <div className='container mx-auto px-4'>
         <Outlet />
       </div>
     </div>
