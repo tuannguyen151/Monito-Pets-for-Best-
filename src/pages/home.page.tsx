@@ -2,12 +2,17 @@ import { Button } from '@/components/atoms/Button'
 import { Checkbox } from '@/components/atoms/Checkbox'
 import { Input } from '@/components/atoms/Input'
 import InputWrapper from '@/components/atoms/InputWrapper'
+import Pdf from '@/components/atoms/Pdf'
 import { RadioGroup, RadioGroupItem } from '@/components/atoms/Radio'
 import Select from '@/components/atoms/Select'
 import CaretCircleRight from '@/components/atoms/icons/CaretCircleRight'
 
 const Home = () => (
   <div className='flex flex-col gap-10 [&>*:nth-child(even)]:bg-state-blue/10 [&>*:nth-child(odd)]:bg-state-orange/10'>
+    <div className='flex gap-4'>
+      <Pdf file='sample.pdf' isThumbnail height={320} pageNumber={1} />
+    </div>
+
     <div className='flex gap-4'>
       <div>
         <Button>DEFAULT</Button>
